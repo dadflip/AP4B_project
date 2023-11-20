@@ -1,0 +1,51 @@
+munchkin-game/
+|-- src/
+|   |-- main/
+|       |-- java/
+|           |-- com/
+|               |-- utmunchkin/
+|                    ├── cards/
+|                    │   ├── DungeonCard.java
+|                    │   ├── TreasureCard.java
+|                    │   ├── CurseCard.java
+|                    │   ├── MonsterCard.java
+|                    │   ├── GreenCard.java
+|                    │   ├── BlueCard.java
+|                    │   ├── RaceCard.java
+|                    │   └── ClassCard.java
+|                    │
+|                    ├── gameplay/
+|                    │   ├── OpenDoorPhase.java
+|                    │   ├── FightPhase.java
+|                    │   ├── CombatManager.java
+|                    │   ├── SearchForTroublePhase.java
+|                    │   ├── LootRoomPhase.java
+|                    │   ├── CharityPhase.java
+|                    │
+|                    ├── players/
+|                    │   ├── ListOfPlayer.java
+|                    │   ├── Player.java
+|                    │   ├── Ally.java
+|                    │   ├── CharacterDetails.java
+|                    │
+|                    ├── objects/
+|                    │   ├── ObjectCard.java
+|                    │
+|                    ├── exchanges/
+|                    │   ├── ObjectExchange.java
+|                    │
+|                    ├── utils/
+|                    │   ├── DiceRoller.java
+|                    │
+|                    └── Main.java
+|                    └── Rules.java
+|                    └── Constant.java
+|                    └── Token.java
+|
+|-- resources/
+|   |-- card-images/
+|       |...
+|
+|-- .gitignore
+|-- README.md
+|-- pom.xml

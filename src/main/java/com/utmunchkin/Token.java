@@ -1,3 +1,4 @@
+package main.java.com.utmunchkin;
 public class Token {
     private int value;
 

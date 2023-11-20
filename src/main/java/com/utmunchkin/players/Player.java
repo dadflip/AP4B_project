@@ -1,4 +1,5 @@
-public class Player {
+package main.java.com.utmunchkin.players;
+public class Player extends ListOfPlayer {
     private String name;
     private int score;
     private int turn;

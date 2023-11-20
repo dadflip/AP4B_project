@@ -1,7 +1,12 @@
-public class main {
+package main.java.com.utmunchkin;
+import main.java.com.utmunchkin.players.ListOfPlayer;
+import main.java.com.utmunchkin.players.Player;
+import main.java.com.utmunchkin.utils.DiceRoller;
+
+public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
-        Dice dice = new Dice();
+        DiceRoller dice = new DiceRoller();
         Rules rules = new Rules();
         ListOfPlayer list = new ListOfPlayer();
         list.addPlayer(new Player("Player 1", 1));

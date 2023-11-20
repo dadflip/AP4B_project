@@ -1,7 +1,9 @@
-public class Dice {
+package main.java.com.utmunchkin.utils;
+
+public class DiceRoller {
     private int value;
 
-    public Dice() {
+    public DiceRoller() {
         this.value = 0;
     }
 

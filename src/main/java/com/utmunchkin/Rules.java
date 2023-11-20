@@ -1,6 +1,11 @@
+package main.java.com.utmunchkin;
+
+import main.java.com.utmunchkin.players.ListOfPlayer;
+import main.java.com.utmunchkin.utils.DiceRoller;
+
 public class Rules {
     public void setTurn(ListOfPlayer list) {
-        Dice dice = new Dice();
+        DiceRoller dice = new DiceRoller();
         do {
             dice.roll();
         }while (dice.getValue() >list.getSize());
