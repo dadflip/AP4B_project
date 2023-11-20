@@ -65,6 +65,9 @@ public class Player extends ListOfPlayer {
         return this.name + " (" + this.score + ")";
     }
 
+    public void gainLevel() {
+    }
+
 
 
 }

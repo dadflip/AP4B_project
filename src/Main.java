@@ -1,4 +1,4 @@
-package main.java.com.utmunchkin;
+import main.java.com.utmunchkin.Rules;
 import main.java.com.utmunchkin.players.ListOfPlayer;
 import main.java.com.utmunchkin.players.Player;
 import main.java.com.utmunchkin.utils.DiceRoller;
