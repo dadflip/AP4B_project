@@ -14,6 +14,5 @@ public class Main {
         list.addPlayer(new Player("Player 3", 3));
         list.addPlayer(new Player("Player 4", 4));
         rules.setTurn(list);
-
     }
 }
