@@ -10,7 +10,7 @@ import main.java.com.utmunchkin.players.ListOfPlayer;
 
 public class Board extends JFrame {
 
-    private List<PlayerPanel> playerPanels;
+    private List<PlayerFrame> playerFrames;
     private ListOfPlayer players;
 
     public Board(ListOfPlayer a) {
@@ -18,12 +18,11 @@ public class Board extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(2, 4)); // 2 rows, 4 columns
         players = a;
-        playerPanels = new ArrayList<>();
+        playerFrames = new ArrayList<>();
 
         for (int i = 0; i < players.getSize(); i++) {
-            PlayerPanel playerPanel = new PlayerPanel(players.getPlayer(i).getName(), players, i);
-            playerPanels.add(playerPanel);
-            add(playerPanel);
+            PlayerFrame playerFrame = new PlayerFrame(players.getPlayer(i).getName(), players, i);
+            playerFrames.add(playerFrame);
         }
 
         pack();
@@ -37,12 +36,11 @@ public class Board extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(2, 4)); // 2 rows, 4 columns
         players = new ListOfPlayer();
-        playerPanels = new ArrayList<>();
+        playerFrames = new ArrayList<>();
 
         for (int i = 0; i < players.getSize(); i++) {
-            PlayerPanel playerPanel = new PlayerPanel(players.getPlayer(i).getName(), players, i);
-            playerPanels.add(playerPanel);
-            add(playerPanel);
+            PlayerFrame playerFrame = new PlayerFrame(players.getPlayer(i).getName(), players, i);
+            playerFrames.add(playerFrame);
         }
 
         pack();
@@ -50,39 +48,40 @@ public class Board extends JFrame {
         setVisible(true);
     }
 
-    public class PlayerPanel extends JPanel {
+    public class PlayerFrame extends JFrame {
 
         private String playerName;
         private List<JButton> cardButtons;
 
-        public PlayerPanel(String playerName, ListOfPlayer listOfPlayer, int playerIndex) {
+        public PlayerFrame(String playerName, ListOfPlayer listOfPlayer, int playerIndex) {
             this.playerName = playerName;
             this.cardButtons = new ArrayList<>();
 
-            setLayout(new GridLayout(2, 4)); // 2 rows, 4 columns
+            setTitle("Player " + (playerIndex + 1) + "'s Hand");
+            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close only the current frame
+
+            JPanel panel = new JPanel();
+            panel.setLayout(new GridLayout(2, 4)); // 2 rows, 4 columns
+            panel.setBorder(BorderFactory.createTitledBorder(playerName));  // TitledBorder for the panel
 
             // Assign a unique background color based on the player's index
-            setBackground(getUniqueColor(playerIndex));
-
-            setBorder(BorderFactory.createTitledBorder(playerName));
+            panel.setBackground(getUniqueColor(playerIndex));
 
             for (int i = 0; i < listOfPlayer.getPlayer(playerName).getHand().size(); i++) {
                 String cardName = listOfPlayer.getPlayer(playerName).getHand().get(i).getCardName();
                 JButton cardButton = new JButton(cardName);
                 cardButton.setEnabled(false);  // Initially set the button to be non-clickable
                 cardButtons.add(cardButton);
-                add(cardButton);
+                panel.add(cardButton);
 
                 // Add an ActionListener to handle button clicks
                 cardButton.addActionListener(new CardButtonListener(cardName));
             }
-        }
 
-        public void updateHand(List<String> hand) {
-            for (int i = 0; i < hand.size(); i++) {
-                cardButtons.get(i).setText(hand.get(i));
-                cardButtons.get(i).setEnabled(true);  // Enable the button
-            }
+            add(panel);
+            pack();
+            setLocationRelativeTo(null); // Center the frame
+            setVisible(true);  // Set the frame to be visible
         }
 
         // ActionListener to handle button clicks
@@ -107,5 +106,12 @@ public class Board extends JFrame {
             int blue = playerIndex * 120 % 255;
             return new Color(red, green, blue);
         }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            ListOfPlayer players = new ListOfPlayer();  // Replace with your actual player data
+            new Board(players);
+        });
     }
 }
