@@ -1,0 +1,168 @@
+Sword of Power,Powerful weapon,1,false,TREASURE,WEAPON,applySwordEffect
+Goblin Horde,Horde of goblins,2,true,DUNGEON,TRAP,applyPotionEffect
+Shield of Protection,Defensive shield,3,false,TREASURE,HEADGEAR,applySwordEffect
+Haunted Ghost,Haunted and vengeful ghost,4,true,DUNGEON,HAUNT,applyPotionEffect
+Ring of Wealth,Wealth-enhancing ring,5,false,TREASURE,ARMOR,applySwordEffect
+Treacherous Trap,Deceptive trap,6,true,DUNGEON,BOSS,applyPotionEffect
+Enchanted Amulet,Magical amulet,7,false,TREASURE,TWO_HANDS,applySwordEffect
+Cursed Witch,Cursed witch,8,true,DUNGEON,UNDEAD,applyPotionEffect
+Elixir of Luck,Luck-boosting elixir,9,false,TREASURE,USABLE,applySwordEffect
+Labyrinth of Shadows,Perilous labyrinth,10,true,DUNGEON,MYSTERIOUS,applyPotionEffect
+Crystal Shield,Shielding crystal shield,1,false,TREASURE,BIG,applySwordEffect
+Dreadful Demon,Dreadful demon,2,true,DUNGEON,TREACHEROUS,applyPotionEffect
+Ancient Relic,Ancient mystical relic,3,false,TREASURE,VALUABLE,applySwordEffect
+Skeletal Warriors,Undead skeletal warriors,4,true,DUNGEON,DREADFUL,applyPotionEffect
+Lucky Charm,Fortune-attracting charm,5,false,TREASURE,CONSUMABLE,applySwordEffect
+Ancient Guardian,Ancient guardian,6,true,DUNGEON,VENOMOUS,applyPotionEffect
+Silver Saber,Silver saber of strength,7,false,TREASURE,LIMITED_USE,applySwordEffect
+Venomous Spider,Venomous spider,8,true,DUNGEON,HAUNTED,applyPotionEffect
+Blessed Gauntlet,Blessed gauntlet,9,false,TREASURE,RARE,applySwordEffect
+Evil Warlock,Evil warlock's curse,10,true,DUNGEON,MYTHICAL,applyPotionEffect
+Sword of Power,Powerful weapon,1,false,TREASURE,WEAPON,applySwordEffect
+Goblin Horde,Horde of goblins,2,true,DUNGEON,TRAP,applyPotionEffect
+Shield of Protection,Defensive shield,3,false,TREASURE,HEADGEAR,applySwordEffect
+Haunted Ghost,Haunted and vengeful ghost,4,true,DUNGEON,HAUNT,applyPotionEffect
+Ring of Wealth,Wealth-enhancing ring,5,false,TREASURE,ARMOR,applySwordEffect
+Treacherous Trap,Deceptive trap,6,true,DUNGEON,BOSS,applyPotionEffect
+Enchanted Amulet,Magical amulet,7,false,TREASURE,TWO_HANDS,applySwordEffect
+Cursed Witch,Cursed witch,8,true,DUNGEON,UNDEAD,applyPotionEffect
+Elixir of Luck,Luck-boosting elixir,9,false,TREASURE,USABLE,applySwordEffect
+Labyrinth of Shadows,Perilous labyrinth,10,true,DUNGEON,MYSTERIOUS,applyPotionEffect
+Crystal Shield,Shielding crystal shield,1,false,TREASURE,BIG,applySwordEffect
+Dreadful Demon,Dreadful demon,2,true,DUNGEON,TREACHEROUS,applyPotionEffect
+Ancient Relic,Ancient mystical relic,3,false,TREASURE,VALUABLE,applySwordEffect
+Skeletal Warriors,Undead skeletal warriors,4,true,DUNGEON,DREADFUL,applyPotionEffect
+Lucky Charm,Fortune-attracting charm,5,false,TREASURE,CONSUMABLE,applySwordEffect
+Ancient Guardian,Ancient guardian,6,true,DUNGEON,VENOMOUS,applyPotionEffect
+Silver Saber,Silver saber of strength,7,false,TREASURE,LIMITED_USE,applySwordEffect
+Venomous Spider,Venomous spider,8,true,DUNGEON,HAUNTED,applyPotionEffect
+Blessed Gauntlet,Blessed gauntlet,9,false,TREASURE,RARE,applySwordEffect
+Evil Warlock,Evil warlock's curse,10,true,DUNGEON,MYTHICAL,applyPotionEffect
+Sword of Power,Powerful weapon,1,false,TREASURE,WEAPON,applySwordEffect
+Goblin Horde,Horde of goblins,2,true,DUNGEON,TRAP,applyPotionEffect
+Shield of Protection,Defensive shield,3,false,TREASURE,HEADGEAR,applySwordEffect
+Haunted Ghost,Haunted and vengeful ghost,4,true,DUNGEON,HAUNT,applyPotionEffect
+Ring of Wealth,Wealth-enhancing ring,5,false,TREASURE,ARMOR,applySwordEffect
+Treacherous Trap,Deceptive trap,6,true,DUNGEON,BOSS,applyPotionEffect
+Enchanted Amulet,Magical amulet,7,false,TREASURE,TWO_HANDS,applySwordEffect
+Cursed Witch,Cursed witch,8,true,DUNGEON,UNDEAD,applyPotionEffect
+Elixir of Luck,Luck-boosting elixir,9,false,TREASURE,USABLE,applySwordEffect
+Labyrinth of Shadows,Perilous labyrinth,10,true,DUNGEON,MYSTERIOUS,applyPotionEffect
+Crystal Shield,Shielding crystal shield,1,false,TREASURE,BIG,applySwordEffect
+Dreadful Demon,Dreadful demon,2,true,DUNGEON,TREACHEROUS,applyPotionEffect
+Ancient Relic,Ancient mystical relic,3,false,TREASURE,VALUABLE,applySwordEffect
+Skeletal Warriors,Undead skeletal warriors,4,true,DUNGEON,DREADFUL,applyPotionEffect
+Lucky Charm,Fortune-attracting charm,5,false,TREASURE,CONSUMABLE,applySwordEffect
+Ancient Guardian,Ancient guardian,6,true,DUNGEON,VENOMOUS,applyPotionEffect
+Silver Saber,Silver saber of strength,7,false,TREASURE,LIMITED_USE,applySwordEffect
+Venomous Spider,Venomous spider,8,true,DUNGEON,HAUNTED,applyPotionEffect
+Blessed Gauntlet,Blessed gauntlet,9,false,TREASURE,RARE,applySwordEffect
+Evil Warlock,Evil warlock's curse,10,true,DUNGEON,MYTHICAL,applyPotionEffect
+Sword of Power,Powerful weapon,1,false,TREASURE,WEAPON,applySwordEffect
+Goblin Horde,Horde of goblins,2,true,DUNGEON,TRAP,applyPotionEffect
+Shield of Protection,Defensive shield,3,false,TREASURE,HEADGEAR,applySwordEffect
+Haunted Ghost,Haunted and vengeful ghost,4,true,DUNGEON,HAUNT,applyPotionEffect
+Ring of Wealth,Wealth-enhancing ring,5,false,TREASURE,ARMOR,applySwordEffect
+Treacherous Trap,Deceptive trap,6,true,DUNGEON,BOSS,applyPotionEffect
+Enchanted Amulet,Magical amulet,7,false,TREASURE,TWO_HANDS,applySwordEffect
+Cursed Witch,Cursed witch,8,true,DUNGEON,UNDEAD,applyPotionEffect
+Elixir of Luck,Luck-boosting elixir,9,false,TREASURE,USABLE,applySwordEffect
+Labyrinth of Shadows,Perilous labyrinth,10,true,DUNGEON,MYSTERIOUS,applyPotionEffect
+Crystal Shield,Shielding crystal shield,1,false,TREASURE,BIG,applySwordEffect
+Dreadful Demon,Dreadful demon,2,true,DUNGEON,TREACHEROUS,applyPotionEffect
+Ancient Relic,Ancient mystical relic,3,false,TREASURE,VALUABLE,applySwordEffect
+Skeletal Warriors,Undead skeletal warriors,4,true,DUNGEON,DREADFUL,applyPotionEffect
+Lucky Charm,Fortune-attracting charm,5,false,TREASURE,CONSUMABLE,applySwordEffect
+Ancient Guardian,Ancient guardian,6,true,DUNGEON,VENOMOUS,applyPotionEffect
+Silver Saber,Silver saber of strength,7,false,TREASURE,LIMITED_USE,applySwordEffect
+Venomous Spider,Venomous spider,8,true,DUNGEON,HAUNTED,applyPotionEffect
+Blessed Gauntlet,Blessed gauntlet,9,false,TREASURE,RARE,applySwordEffect
+Evil Warlock,Evil warlock's curse,10,true,DUNGEON,MYTHICAL,applyPotionEffect
+Sword of Power,Powerful weapon,1,false,TREASURE,WEAPON,applySwordEffect
+Goblin Horde,Horde of goblins,2,true,DUNGEON,TRAP,applyPotionEffect
+Shield of Protection,Defensive shield,3,false,TREASURE,HEADGEAR,applySwordEffect
+Haunted Ghost,Haunted and vengeful ghost,4,true,DUNGEON,HAUNT,applyPotionEffect
+Ring of Wealth,Wealth-enhancing ring,5,false,TREASURE,ARMOR,applySwordEffect
+Treacherous Trap,Deceptive trap,6,true,DUNGEON,BOSS,applyPotionEffect
+Enchanted Amulet,Magical amulet,7,false,TREASURE,TWO_HANDS,applySwordEffect
+Cursed Witch,Cursed witch,8,true,DUNGEON,UNDEAD,applyPotionEffect
+Elixir of Luck,Luck-boosting elixir,9,false,TREASURE,USABLE,applySwordEffect
+Labyrinth of Shadows,Perilous labyrinth,10,true,DUNGEON,MYSTERIOUS,applyPotionEffect
+Crystal Shield,Shielding crystal shield,1,false,TREASURE,BIG,applySwordEffect
+Dreadful Demon,Dreadful demon,2,true,DUNGEON,TREACHEROUS,applyPotionEffect
+Ancient Relic,Ancient mystical relic,3,false,TREASURE,VALUABLE,applySwordEffect
+Skeletal Warriors,Undead skeletal warriors,4,true,DUNGEON,DREADFUL,applyPotionEffect
+Lucky Charm,Fortune-attracting charm,5,false,TREASURE,CONSUMABLE,applySwordEffect
+Ancient Guardian,Ancient guardian,6,true,DUNGEON,VENOMOUS,applyPotionEffect
+Silver Saber,Silver saber of strength,7,false,TREASURE,LIMITED_USE,applySwordEffect
+Venomous Spider,Venomous spider,8,true,DUNGEON,HAUNTED,applyPotionEffect
+Blessed Gauntlet,Blessed gauntlet,9,false,TREASURE,RARE,applySwordEffect
+Evil Warlock,Evil warlock's curse,10,true,DUNGEON,MYTHICAL,applyPotionEffect
+Sword of Power,Powerful weapon,1,false,TREASURE,WEAPON,applySwordEffect
+Goblin Horde,Horde of goblins,2,true,DUNGEON,TRAP,applyPotionEffect
+Shield of Protection,Defensive shield,3,false,TREASURE,HEADGEAR,applySwordEffect
+Haunted Ghost,Haunted and vengeful ghost,4,true,DUNGEON,HAUNT,applyPotionEffect
+Ring of Wealth,Wealth-enhancing ring,5,false,TREASURE,ARMOR,applySwordEffect
+Treacherous Trap,Deceptive trap,6,true,DUNGEON,BOSS,applyPotionEffect
+Enchanted Amulet,Magical amulet,7,false,TREASURE,TWO_HANDS,applySwordEffect
+Cursed Witch,Cursed witch,8,true,DUNGEON,UNDEAD,applyPotionEffect
+Elixir of Luck,Luck-boosting elixir,9,false,TREASURE,USABLE,applySwordEffect
+Labyrinth of Shadows,Perilous labyrinth,10,true,DUNGEON,MYSTERIOUS,applyPotionEffect
+Crystal Shield,Shielding crystal shield,1,false,TREASURE,BIG,applySwordEffect
+Dreadful Demon,Dreadful demon,2,true,DUNGEON,TREACHEROUS,applyPotionEffect
+Ancient Relic,Ancient mystical relic,3,false,TREASURE,VALUABLE,applySwordEffect
+Skeletal Warriors,Undead skeletal warriors,4,true,DUNGEON,DREADFUL,applyPotionEffect
+Lucky Charm,Fortune-attracting charm,5,false,TREASURE,CONSUMABLE,applySwordEffect
+Ancient Guardian,Ancient guardian,6,true,DUNGEON,VENOMOUS,applyPotionEffect
+Silver Saber,Silver saber of strength,7,false,TREASURE,LIMITED_USE,applySwordEffect
+Venomous Spider,Venomous spider,8,true,DUNGEON,HAUNTED,applyPotionEffect
+Blessed Gauntlet,Blessed gauntlet,9,false,TREASURE,RARE,applySwordEffect
+Evil Warlock,Evil warlock's curse,10,true,DUNGEON,MYTHICAL,applyPotionEffect
+Sword of Power,Powerful weapon,1,false,TREASURE,WEAPON,applySwordEffect
+Goblin Horde,Horde of goblins,2,true,DUNGEON,TRAP,applyPotionEffect
+Shield of Protection,Defensive shield,3,false,TREASURE,HEADGEAR,applySwordEffect
+Haunted Ghost,Haunted and vengeful ghost,4,true,DUNGEON,HAUNT,applyPotionEffect
+Ring of Wealth,Wealth-enhancing ring,5,false,TREASURE,ARMOR,applySwordEffect
+Treacherous Trap,Deceptive trap,6,true,DUNGEON,BOSS,applyPotionEffect
+Enchanted Amulet,Magical amulet,7,false,TREASURE,TWO_HANDS,applySwordEffect
+Cursed Witch,Cursed witch,8,true,DUNGEON,UNDEAD,applyPotionEffect
+Elixir of Luck,Luck-boosting elixir,9,false,TREASURE,USABLE,applySwordEffect
+Labyrinth of Shadows,Perilous labyrinth,10,true,DUNGEON,MYSTERIOUS,applyPotionEffect
+Crystal Shield,Shielding crystal shield,1,false,TREASURE,BIG,applySwordEffect
+Dreadful Demon,Dreadful demon,2,true,DUNGEON,TREACHEROUS,applyPotionEffect
+Ancient Relic,Ancient mystical relic,3,false,TREASURE,VALUABLE,applySwordEffect
+Skeletal Warriors,Undead skeletal warriors,4,true,DUNGEON,DREADFUL,applyPotionEffect
+Lucky Charm,Fortune-attracting charm,5,false,TREASURE,CONSUMABLE,applySwordEffect
+Ancient Guardian,Ancient guardian,6,true,DUNGEON,VENOMOUS,applyPotionEffect
+Silver Saber,Silver saber of strength,7,false,TREASURE,LIMITED_USE,applySwordEffect
+Venomous Spider,Venomous spider,8,true,DUNGEON,HAUNTED,applyPotionEffect
+Blessed Gauntlet,Blessed gauntlet,9,false,TREASURE,RARE,applySwordEffect
+Evil Warlock,Evil warlock's curse,10,true,DUNGEON,MYTHICAL,applyPotionEffect
+Sword of Power,Powerful weapon,1,false,TREASURE,WEAPON,applySwordEffect
+Goblin Horde,Horde of goblins,2,true,DUNGEON,TRAP,applyPotionEffect
+Shield of Protection,Defensive shield,3,false,TREASURE,HEADGEAR,applySwordEffect
+Haunted Ghost,Haunted and vengeful ghost,4,true,DUNGEON,HAUNT,applyPotionEffect
+Ring of Wealth,Wealth-enhancing ring,5,false,TREASURE,ARMOR,applySwordEffect
+Treacherous Trap,Deceptive trap,6,true,DUNGEON,BOSS,applyPotionEffect
+Enchanted Amulet,Magical amulet,7,false,TREASURE,TWO_HANDS,applySwordEffect
+Cursed Witch,Cursed witch,8,true,DUNGEON,UNDEAD,applyPotionEffect
+Elixir of Luck,Luck-boosting elixir,9,false,TREASURE,USABLE,applySwordEffect
+Labyrinth of Shadows,Perilous labyrinth,10,true,DUNGEON,MYSTERIOUS,applyPotionEffect
+Crystal Shield,Shielding crystal shield,1,false,TREASURE,BIG,applySwordEffect
+Dreadful Demon,Dreadful demon,2,true,DUNGEON,TREACHEROUS,applyPotionEffect
+Ancient Relic,Ancient mystical relic,3,false,TREASURE,VALUABLE,applySwordEffect
+Skeletal Warriors,Undead skeletal warriors,4,true,DUNGEON,DREADFUL,applyPotionEffect
+Lucky Charm,Fortune-attracting charm,5,false,TREASURE,CONSUMABLE,applySwordEffect
+Ancient Guardian,Ancient guardian,6,true,DUNGEON,VENOMOUS,applyPotionEffect
+Silver Saber,Silver saber of strength,7,false,TREASURE,LIMITED_USE,applySwordEffect
+Venomous Spider,Venomous spider,8,true,DUNGEON,HAUNTED,applyPotionEffect
+Blessed Gauntlet,Blessed gauntlet,9,false,TREASURE,RARE,applySwordEffect
+Evil Warlock,Evil warlock's curse,10,true,DUNGEON,MYTHICAL,applyPotionEffect
+Sword of Power,Powerful weapon,1,false,TREASURE,WEAPON,applySwordEffect
+Goblin Horde,Horde of goblins,2,true,DUNGEON,TRAP,applyPotionEffect
+Shield of Protection,Defensive shield,3,false,TREASURE,HEADGEAR,applySwordEffect
+Haunted Ghost,Haunted and vengeful ghost,4,true,DUNGEON,HAUNT,applyPotionEffect
+Ring of Wealth,Wealth-enhancing ring,5,false,TREASURE,ARMOR,applySwordEffect
+Treacherous Trap,Deceptive trap,6,true,DUNGEON,BOSS,applyPotionEffect
+Enchanted Amulet,Magical amulet,7,false,TREASURE,TWO_HANDS,applySwordEffect
+Cursed Witch,Cursed witch,8,true,DUNGEON,UNDEAD,applyPotionEffect

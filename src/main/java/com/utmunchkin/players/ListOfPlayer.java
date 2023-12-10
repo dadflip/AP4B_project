@@ -1,45 +1,41 @@
 package main.java.com.utmunchkin.players;
-import java.util.Arrays;
 
-public class ListOfPlayer {
-    private Player[] list;
-    private int size;
+import java.util.ArrayList;
+import java.util.List;
 
-    // Utilisation d'une constante pour la taille initiale du tableau
-    private static final int INITIAL_CAPACITY = 6;
+import main.java.com.utmunchkin.Constant;
+
+public class ListOfPlayer extends Constant {
+    private List<Player> players;
 
     public ListOfPlayer() {
-        // Initialisation avec la constante
-        this.list = new Player[INITIAL_CAPACITY];
-        this.size = 0;
+        this.players = new ArrayList<>(INITIAL_CAPACITY);
     }
 
     public int getSize() {
-        return this.size;
+        return players.size();
     }
 
     public Player getPlayer(int index) {
-        // Vérification des limites pour éviter les erreurs d'index
-        if (index < 0 || index >= this.size) {
-            throw new IndexOutOfBoundsException("Index out of bounds");
+        validateIndex(index);
+        return players.get(index);
+    }
+    public Player getPlayer(String name) {
+        for (Player player : players) {
+            if (player.getName().equals(name)) {
+                return player;
+            }
         }
-        return this.list[index];
+        return null;
     }
 
     public void addPlayer(Player player) {
-        // Vérification si la taille actuelle est suffisante
-        if (this.size == this.list.length) {
-            // Si la taille n'est pas suffisante, doubler la capacité du tableau
-            this.list = Arrays.copyOf(this.list, this.size * 2);
-        }
-        this.list[this.size] = player;
-        this.size++;
+        players.add(player);
     }
 
-    // Méthode générique pour réinitialiser différents aspects du joueur
     private void resetAspect(ActionResetter actionResetter) {
-        for (int i = 0; i < this.size; i++) {
-            actionResetter.reset(this.list[i]);
+        for (Player player : players) {
+            actionResetter.reset(player);
         }
     }
 
@@ -56,23 +52,33 @@ public class ListOfPlayer {
     }
 
     public void addScore(int index, int score) {
-        this.list[index].addScore(score);
+        validateIndex(index);
+        players.get(index).addScore(score);
     }
 
     public void addTurn(int index) {
-        this.list[index].addTurn();
+        validateIndex(index);
+        players.get(index).addTurn();
     }
 
     public String toString() {
-        // Utilisation de StringBuilder pour des opérations de chaînes fréquentes
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < this.size; i++) {
-            result.append(this.list[i].toString()).append("\n");
+        for (Player player : players) {
+            result.append(player.toString()).append("\n");
         }
         return result.toString();
     }
 
-    // Interface fonctionnelle pour générer des actions de réinitialisation
+    public List<Player> getPlayers() {
+        return new ArrayList<>(players);
+    }
+
+    private void validateIndex(int index) {
+        if (index < 0 || index >= players.size()) {
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
+    }
+
     private interface ActionResetter {
         void reset(Player player);
     }
