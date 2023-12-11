@@ -3,6 +3,7 @@ import main.java.com.utmunchkin.gameplay.Play;
 import main.java.com.utmunchkin.players.ListOfPlayer;
 import main.java.com.utmunchkin.players.Player;
 import main.java.com.utmunchkin.utils.DiceRoller;
+
 public class Main {
     public static void main(String[] args) {
         // TODO code application logic here

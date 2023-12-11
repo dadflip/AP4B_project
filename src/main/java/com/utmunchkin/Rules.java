@@ -24,6 +24,7 @@ public class Rules {
             if (index == list.getSize()) {
                 index = 0;
             }
+
             list.getPlayer(index).setTurn(i + 1);
             System.out.println("Player " + list.getPlayer(index).getName() + " will play in turn " + list.getPlayer(index).getTurn());
 

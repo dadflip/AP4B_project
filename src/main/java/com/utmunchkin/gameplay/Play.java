@@ -26,6 +26,8 @@ public class Play implements CardsActions {
     private ListOfPlayer players;
     private boolean gameWon;
     private Cards cardsOfGame;
+    private Dungeon dungeonCard;
+    private Treasure treasureCard;
     private Rules rules;
     private Board board;
 
@@ -46,6 +48,8 @@ public class Play implements CardsActions {
         this.firstPlayer = firstPlayerIndex;
         this.cardsOfGame = new Cards(); // Initialize cardsOfGame
         this.cardsOfGame.printCards();
+        this.dungeonCard = new Dungeon();
+        this.treasureCard = new Treasure();
     }
     public void gameProcess() {
         initializeGame();
@@ -54,9 +58,9 @@ public class Play implements CardsActions {
             openDoorPhase(currentPlayer);
 
             if (!currentPlayer.hasEncounteredMonster()) {
-                System.out.println("Chercher Bagarre");
+                board.updateInfo("Chercher Bagarre");
                 lookForTroublePhase(currentPlayer);
-                System.out.println("Piller la Pièce");
+                board.updateInfo("Piller la salle");
                 lootTheRoomPhase(currentPlayer);
             }
 
@@ -79,7 +83,7 @@ public class Play implements CardsActions {
             }
             System.out.println("\n");
         }
-        this.board = new Board(players);
+        board = new Board(this);
     }
 
     private void checkGameWon(Player currentPlayer) {
@@ -92,10 +96,7 @@ public class Play implements CardsActions {
     @Override
     public void onOpenDoor(Player player) {
         System.out.println(player.getName() + " is opening a door...");
-        Dungeon dungeon = new Dungeon();
-        Treasure treasure = new Treasure();
-
-        Card topDungeonCard = dungeon.removeFirstFromDeck();
+        Card topDungeonCard = dungeonCard.removeFirstFromDeck();
         
         System.out.println("Top Dungeon Card: " + topDungeonCard);
         
@@ -161,7 +162,6 @@ public class Play implements CardsActions {
     private void lootTheRoomPhase(Player player) {
         System.out.println("Vous n'avez rencontré aucun monstre en ouvrant la porte.");
         System.out.println("Vous pouvez piller la salle.");
-    
         Dungeon drawnCard = new Dungeon();
         player.addToHand(drawnCard.removeFirstFromDeck());
         System.out.println(player.getName() + " a tiré une carte Donjon face cachée : " + drawnCard.getCardName());
@@ -170,17 +170,18 @@ public class Play implements CardsActions {
     private void lookForTroublePhase(Player player) {
         List<Card> playerHand = player.getHand();
         if (!playerHand.isEmpty()) {
-            System.out.println("Vous n'avez croisé aucun monstre en ouvrant la porte.");
-            System.out.println("Vous pouvez affronter un monstre de votre main :");
+            board.updateInfo("Vous n'avez croisé aucun monstre en ouvrant la porte.");
+            board.updateInfo("Vous pouvez affronter un monstre de votre main :");
+
             displayPlayerHand(playerHand);
             
             Dungeon.Monster selectedMonster = (Monster) selectMonsterFromHand(playerHand);
-            
+
             faceMonster(player, selectedMonster);
             
-            System.out.println(player.getName() + " affronte le monstre : " + selectedMonster.getCardName());
+            board.updateInfo(player.getName() + " affronte le monstre : " + selectedMonster.getCardName());
         } else {
-            System.out.println("Vous n'avez aucun monstre dans votre main.");
+            board.updateInfo("Vous n'avez aucun monstre dans votre main.");
         }
     }
 
@@ -192,34 +193,14 @@ public class Play implements CardsActions {
 
     private Card selectMonsterFromHand(List<Card> playerHand) {
         if (playerHand.isEmpty()) {
-            System.out.println("Vous n'avez aucun monstre dans votre main.");
+            board.updateInfo("Vous n'avez aucun monstre dans votre main.");
             return null;
         }
 
-        System.out.println("Choisissez un monstre de votre main :");
-
-        for (int i = 0; i < playerHand.size(); i++) {
-            System.out.println((i + 1) + ". " + playerHand.get(i).getCardName());
-        }
-
-        Scanner scanner = new Scanner(System.in);
-        int choice;
-
-        do {
-            System.out.print("Entrez le numéro du monstre que vous souhaitez affronter : ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Veuillez entrer un numéro valide.");
-                scanner.next();
-            }
-            choice = scanner.nextInt();
-
-            if (choice < 1 || choice > playerHand.size()) {
-                System.out.println("Veuillez entrer un numéro valide.");
-            }
-
-        } while (choice < 1 || choice > playerHand.size());
-
-        return playerHand.get(choice - 1);
+        board.updateInfo("Choisissez un monstre de votre main :");
+        board.showInstructionDialog("Entrez le numéro du monstre que vous souhaitez affronter : ");
+        int choice = board.getChoice();
+        return playerHand.get(choice);
     }
 
     private void endTurnPhase(Player player) {
@@ -317,6 +298,48 @@ public class Play implements CardsActions {
         System.out.println(donor.getName() + " a donné les cartes excédentaires à " + recipient.getName());
     }
     //getters and setters
+    public int getFirstPlayerIndex() {
+        return firstPlayer;
+    }
+    public void setFirstPlayerIndex(int firstPlayerIndex) {
+        this.firstPlayer = firstPlayerIndex;
+    }
+    public ListOfPlayer getPlayers() {
+        return players;
+    }
+    public void setPlayers(ListOfPlayer players) {
+        this.players = players;
+    }
+    public boolean isGameWon() {
+        return gameWon;
+    }
+    public void setGameWon(boolean gameWon) {
+        this.gameWon = gameWon;
+    }
+    public Cards getCardsOfGame() {
+        return cardsOfGame;
+    }
+    public void setCardsOfGame(Cards cardsOfGame) {
+        this.cardsOfGame = cardsOfGame;
+    }
+    public Rules getRules() {
+        return rules;
+    }
+    public void setRules(Rules rules) {
+        this.rules = rules;
+    }
+    public Board getBoard() {
+        return board;
+    }
+    public Dungeon getDungeonCard() {
+        return dungeonCard;
+    }
+    public Treasure getTreasureCard() {
+        return treasureCard;
+    }
+    public void setBoard(Board board) {
+        this.board = board;
+    }
     public int getCurrentPlayerIndex() {
         return currentPlayerIndex;
     }

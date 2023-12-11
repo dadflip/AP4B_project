@@ -1,117 +1,116 @@
 package main.java.com.utmunchkin.Interface;
 
+import main.java.com.utmunchkin.cards.Dungeon;
+import main.java.com.utmunchkin.cards.Treasure;
+import main.java.com.utmunchkin.gameplay.Play;
+import main.java.com.utmunchkin.players.ListOfPlayer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import main.java.com.utmunchkin.players.ListOfPlayer;
 
 public class Board extends JFrame {
 
     private List<PlayerFrame> playerFrames;
-    private ListOfPlayer players;
+    private Play game;
+    private JButton drawDungeonButton;
+    private JButton drawTreasureButton;
+    private JTextArea infoTextArea;
+    private int choice;
 
-    public Board(ListOfPlayer a) {
+    public Board(Play a) {
         setTitle("Munchkin Game Board");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(2, 4)); // 2 rows, 4 columns
-        players = a;
+        setLayout(new BorderLayout());
+
+        this.game = a;
         playerFrames = new ArrayList<>();
 
-        for (int i = 0; i < players.getSize(); i++) {
-            PlayerFrame playerFrame = new PlayerFrame(players.getPlayer(i).getName(), players, i);
-            playerFrames.add(playerFrame);
-        }
+        // Initialize JTextArea for information display
+        infoTextArea = new JTextArea(10, 30);
+        infoTextArea.setEditable(false);
+        JScrollPane infoScrollPane = new JScrollPane(infoTextArea);
+        add(infoScrollPane, BorderLayout.EAST);
+
+        // Initialize center panel for player frames
+        JPanel centerPanel = new JPanel(new GridLayout(3, 4));
+        initializePlayerFrames(centerPanel);
+        add(centerPanel, BorderLayout.CENTER);
+
+        // Initialize top panel for draw buttons
+        JPanel topPanel = new JPanel();
+        initializeDrawButtons(topPanel);
+        add(topPanel, BorderLayout.NORTH);
 
         pack();
         setLocationRelativeTo(null); // Center the frame
         setVisible(true);
     }
 
-    // Additional constructor for the default case
-    public Board() {
-        setTitle("Munchkin Game Board");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(2, 4)); // 2 rows, 4 columns
-        players = new ListOfPlayer();
-        playerFrames = new ArrayList<>();
+    private void initializeDrawButtons(JPanel panel) {
+        drawDungeonButton = new JButton("Draw Dungeon");
+        drawTreasureButton = new JButton("Draw Treasure");
 
-        for (int i = 0; i < players.getSize(); i++) {
-            PlayerFrame playerFrame = new PlayerFrame(players.getPlayer(i).getName(), players, i);
-            playerFrames.add(playerFrame);
-        }
-
-        pack();
-        setLocationRelativeTo(null); // Center the frame
-        setVisible(true);
-    }
-
-    public class PlayerFrame extends JFrame {
-
-        private String playerName;
-        private List<JButton> cardButtons;
-
-        public PlayerFrame(String playerName, ListOfPlayer listOfPlayer, int playerIndex) {
-            this.playerName = playerName;
-            this.cardButtons = new ArrayList<>();
-
-            setTitle("Player " + (playerIndex + 1) + "'s Hand");
-            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close only the current frame
-
-            JPanel panel = new JPanel();
-            panel.setLayout(new GridLayout(2, 4)); // 2 rows, 4 columns
-            panel.setBorder(BorderFactory.createTitledBorder(playerName));  // TitledBorder for the panel
-
-            // Assign a unique background color based on the player's index
-            panel.setBackground(getUniqueColor(playerIndex));
-
-            for (int i = 0; i < listOfPlayer.getPlayer(playerName).getHand().size(); i++) {
-                String cardName = listOfPlayer.getPlayer(playerName).getHand().get(i).getCardName();
-                JButton cardButton = new JButton(cardName);
-                cardButton.setEnabled(false);  // Initially set the button to be non-clickable
-                cardButtons.add(cardButton);
-                panel.add(cardButton);
-
-                // Add an ActionListener to handle button clicks
-                cardButton.addActionListener(new CardButtonListener(cardName));
-            }
-
-            add(panel);
-            pack();
-            setLocationRelativeTo(null); // Center the frame
-            setVisible(true);  // Set the frame to be visible
-        }
-
-        // ActionListener to handle button clicks
-        private class CardButtonListener implements ActionListener {
-            private String cardName;
-
-            public CardButtonListener(String cardName) {
-                this.cardName = cardName;
-            }
-
+        drawDungeonButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Handle the button click (you can implement specific behavior here)
-                System.out.println("Button clicked: " + cardName);
+                // Handle drawing dungeon card logic here
+                System.out.println("Dungeon Card drawn!");
+                updateInfo("Dungeon Card drawn!");
             }
-        }
-
-        // Method to generate a unique color based on the player's index
-        private Color getUniqueColor(int playerIndex) {
-            int red = playerIndex * 50 % 255;
-            int green = playerIndex * 80 % 255;
-            int blue = playerIndex * 120 % 255;
-            return new Color(red, green, blue);
-        }
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            ListOfPlayer players = new ListOfPlayer();  // Replace with your actual player data
-            new Board(players);
         });
+
+        drawTreasureButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Handle drawing treasure card logic here
+                System.out.println("Treasure Card drawn!");
+                updateInfo("Treasure Card drawn!");
+            }
+        });
+
+        panel.add(drawDungeonButton);
+        panel.add(drawTreasureButton);
     }
+
+    private void initializePlayerFrames(JPanel panel) {
+        for (int i = 0; i < game.getPlayers().getSize(); i++) {
+            PlayerFrame playerFrame = new PlayerFrame(game.getPlayers().getPlayer(i).getName(), game.getPlayers(), i);
+            playerFrames.add(playerFrame);
+            panel.add(playerFrame);
+        }
+    }
+
+
+    public void updateInfo(String message) {
+        infoTextArea.append(message + "\n");
+    }
+
+    public void showInstructionDialog(String instruction) {
+        InstructionDialog instructionDialog = new InstructionDialog(this, instruction);
+        instructionDialog.setVisible(true);
+
+        // Check user response if needed
+        if (instructionDialog.getUserResponse()) {
+            choice = instructionDialog.getUserInput();
+            updateInfo("User entered: " + choice);
+        } else {
+            updateInfo("User canceled the input.");
+        }
+    }
+
+
+    public void updateDrawPileWindow(Treasure updatedTreasure, Dungeon updatedDungeon) {
+        // Update logic for draw pile window based on updatedTreasure and updatedDungeon
+        infoTextArea.append("Updated Draw Pile Window\n");
+    }
+
+    public int getChoice() {
+        return choice;
+    }
+
+
 }
