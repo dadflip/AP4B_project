@@ -3,107 +3,154 @@ package main.java.com.utmunchkin.cards;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import java.util.Iterator;
+
 import main.java.com.utmunchkin.players.Player;
 
 /**
- * Cards
+ * The Cards class represents a collection of cards in the game.
  */
 public class Cards extends Card {
 
     private ArrayList<Card> cards;
+    ArrayList<Card> tempCardList = new ArrayList<>();
 
+
+    /**
+     * Constructs a new Cards object.
+     */
     public Cards() {
-         //create an empty arraylist
-         this.cards = new ArrayList<>();
-         //load all cards
-         this.loadCards();
+        // Create an empty ArrayList
+        this.cards = new ArrayList<>();
+        // Load all cards
+        this.loadCards();
     }
 
-    // Autres méthodes sur cartes
-    //...
-
-    public void shuffleCards(ArrayList<Card> deckToShuffle) { 
-        // Mélangez l'ArrayList
+    /**
+     * Shuffles the given deck of cards.
+     *
+     * @param deckToShuffle The deck of cards to shuffle.
+     */
+    public void shuffleCards(ArrayList<Card> deckToShuffle) {
+        // Shuffle the ArrayList
         Collections.shuffle(deckToShuffle);
     }
-    public void loadCards(){
-        // Charger les cartes dans le paquet
+
+    /**
+     * Loads cards into the deck.
+     */
+    public void loadCards() {
+        // Load cards into the deck
         for (int i = 0; i < 168; i++) {
             Card card = new Card();
             this.cards.add(card);
         }
     }
-    public void printCards(){
-        // Afficher les cartes
+
+    /**
+     * Prints information about all cards in the deck.
+     */
+    public void printCards() {
+        // Print information about all cards in the deck
         int i = 0;
         for (Card c : this.cards) {
-            System.out.println(c.cardInfo.getCardInfo()+"numero de carte : "+i+"\n");
+            System.out.println(c.cardInfo.getCardInfo() + "numero de carte : " + i + "\n");
             i++;
         }
     }
 
+    /**
+     * Constructs a deck of cards with a specified number of cards.
+     *
+     * @param numberOfCards The number of cards in the deck.
+     * @return The constructed deck.
+     */
     public ArrayList<Card> constructDeck(int numberOfCards) {
-        // Mélanger les cartes si nécessaire
+        // Shuffle the cards if necessary
         this.shuffleCards(this.cards);
 
-        // Construire le deck à partir des cartes initiales
+        // Construct the deck from the initial cards
         ArrayList<Card> deck = new ArrayList<>();
         for (int i = 0; i < numberOfCards && i < this.cards.size(); i++) {
-            deck.add(this.removefromCards(0)); // Ajouter la première carte du paquet et la retirer du paquet
+            deck.add(this.removefromCards(0)); // Add the first card from the deck and remove it from the deck
         }
         return deck;
     }
 
-    public ArrayList<Card> constructDeck(int numberOfCards, CardType tCardType) {
+    /**
+     * Constructs a deck of cards with a specified number of cards and a specific card type.
+     *
+     * @param numberOfCards The number of cards in the deck.
+     * @param tCardType     The specified card type.
+     * @return The constructed deck.
+     */
+    public ArrayList<Card> constructDeck(CardType tCardType) {
         // Shuffle the cards if necessary
         this.shuffleCards(this.cards);
     
         // Construct the deck based on the initial cards and specified card type
         ArrayList<Card> deck = new ArrayList<>();
-        int i = 0;
-        while (i < numberOfCards && i < this.cards.size()) {
-            Card card = this.cards.get(0); // Get the first card from the deck without removing it
+        Iterator<Card> iterator = this.cards.iterator();
     
-            // Check the card type before removing it from the deck
-            if (card.cardInfo.getCardType() == tCardType) {
-                this.removefromCards(0); // Remove the first card from the deck
+        while (iterator.hasNext()) {
+            Card card = iterator.next();
+        
+            if (card.getInfo().getCardType() == tCardType) {
+                iterator.remove(); // Remove the current card using the iterator's remove method
                 deck.add(card);
-                i++;
             } else {
-                // If the card type doesn't match, move it to the end of the deck
-                this.cards.add(card);
-                this.cards.remove(0);
+                // If the card type doesn't match, move it to a temporary list
+                tempCardList.add(card);
+                iterator.remove(); // Remove the current card using the iterator's remove method
             }
         }
+        
+        // Add the cards from the temporary list back to this.cards
+        this.cards.addAll(tempCardList);
+        
+    
         return deck;
     }    
-    
 
+    /**
+     * Removes a card from the deck at the specified index.
+     *
+     * @param i The index of the card to remove.
+     * @return The removed card, or null if the index is invalid.
+     */
     public Card removefromCards(int i) {
         if (i >= 0 && i < this.cards.size()) {
             return this.cards.remove(i);
         } else {
-            // Gérer l'indice invalide
-            System.out.println("Indice invalide : " + i);
+            // Handle invalid index
+            System.out.println("Invalid index: " + i);
             return null;
         }
     }
 
+    /**
+     * Distributes cards from the deck pile to a player.
+     *
+     * @param player   The player to receive the cards.
+     * @param deckPile The deck pile to distribute cards from.
+     * @param quantity The number of cards to distribute.
+     */
     private void distributeCardsFromDeckToPlayer(Player player, ArrayList<Card> deckPile, int quantity) {
         for (int i = 0; i < quantity && !deckPile.isEmpty(); i++) {
-            Card card = deckPile.remove(0); // Retirer la première carte du deck
-            player.addToHand(card); // Ajouter la carte à la main du joueur
+            Card card = deckPile.remove(0); // Remove the first card from the deck
+            player.addToHand(card); // Add the card to the player's hand
         }
     }
 
+    /**
+     * Distributes dungeon and treasure cards to a player.
+     *
+     * @param player The player to receive the cards.
+     * @param qty    The number of cards to distribute.
+     */
     public void distributeDungeonTreasureCardToPlayer(Player player, int qty) {
-    //instancier arraylist
-    Dungeon dungeon = new Dungeon();
-    Treasure treasure = new Treasure();
-
-    //distribuer les cartes
-    this.distributeCardsFromDeckToPlayer(player, dungeon.getDeckPile(), qty);
-    this.distributeCardsFromDeckToPlayer(player, treasure.getDeckPile(), qty);
-
+        // Distribute cards
+        this.distributeCardsFromDeckToPlayer(player, Dungeon.getDeckPile(), qty);
+        this.distributeCardsFromDeckToPlayer(player, Treasure.getDeckPile(), qty);
     }
 }

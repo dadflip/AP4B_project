@@ -5,57 +5,121 @@ import java.util.List;
 
 import main.java.com.utmunchkin.Constant;
 
+/**
+ * The Treasure class represents the treasure deck in the game.
+ */
 public class Treasure extends Cards {
-    private ArrayList<Card> deckPile;
-    private ArrayList<Card> discardPile;
+    private static ArrayList<Card> deckPile;
+    private static ArrayList<Card> discardPile;
 
+    /**
+     * Constructs a new Treasure object with a default deck size.
+     */
     public Treasure() {
-        deckPile = constructDeck(Constant.NUMBER_OF_CARDS / 2 , CardType.TREASURE);
+        System.out.println("check1t");
+        deckPile = constructDeck(CardType.TREASURE);
+        System.out.println("check1te");
         discardPile = new ArrayList<>();
+        System.out.println("check1ter");
     }
 
+    /**
+     * Constructs a new Treasure object with a specified deck size.
+     *
+     * @param sizeOfDeck The size of the treasure deck.
+     */
     public Treasure(int sizeOfDeck) {
         deckPile = constructDeck(sizeOfDeck);
         discardPile = new ArrayList<>();
     }
 
-    // Getters
-    public ArrayList<Card> getDeckPile() {
+    /**
+     * Gets the treasure deck pile.
+     *
+     * @return The treasure deck pile.
+     */
+    public static ArrayList<Card> getDeckPile() {
         return deckPile;
     }
 
-    public ArrayList<Card> getDiscardPile() {
+    /**
+     * Gets the treasure discard pile.
+     *
+     * @return The treasure discard pile.
+     */
+    public static ArrayList<Card> getDiscardPile() {
         return discardPile;
     }
 
-    // Setters
-    public void setDeckPile(ArrayList<Card> deckPile) {
-        this.deckPile = deckPile;
+    /**
+     * Sets the treasure deck pile.
+     *
+     * @param deckP The new deck pile.
+     */
+    public static void setDeckPile(ArrayList<Card> deckP) {
+        deckPile = deckP;
     }
 
-    public void setDiscardPile(ArrayList<Card> discardPile) {
-        this.discardPile = discardPile;
+    /**
+     * Sets the treasure discard pile.
+     *
+     * @param discardP The new discard pile.
+     */
+    public static void setDiscardPile(ArrayList<Card> discardP) {
+        discardPile = discardP;
     }
 
+    /**
+     * Adds a card to the treasure deck pile.
+     *
+     * @param card The card to add.
+     */
     public void addToDeck(Card card) {
         deckPile.add(card);
     }
-    
 
+    /**
+     * Removes a card from the treasure deck pile at the specified index.
+     *
+     * @param i The index of the card to remove.
+     * @return The removed card, or null if the index is invalid or the deck is empty.
+     */
     public Card removeFromDeck(int i) {
-        if (!deckPile.isEmpty()) {
+        if (!deckPile.isEmpty() && i >= 0 && i < deckPile.size()) {
             return deckPile.remove(i);
         } else {
             return null; // or throw an exception, depending on your design choice
         }
     }
 
+    /**
+     * Adds multiple cards to the treasure deck pile.
+     *
+     * @param cards The list of cards to add.
+     */
     public void addMultipleToDeck(List<Card> cards) {
         deckPile.addAll(cards);
     }
 
-
+    /**
+     * Removes the first card from the treasure deck pile.
+     *
+     * @return The removed card, or null if the deck is empty.
+     */
     public Card removeFirstFromDeck() {
+        if (!deckPile.isEmpty()) {
+            return deckPile.remove(0);
+        } else {
+            return null; // or throw an exception, depending on your design choice
+        }
+    }
+
+    /**
+     * Draws a card from the treasure deck pile.
+     *
+     * @return The drawn card, or null if the deck is empty.
+     */
+    public static Card draw() {
         if (!deckPile.isEmpty()) {
             return deckPile.remove(0);
         } else {
