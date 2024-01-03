@@ -58,4 +58,4 @@ The first player to reach the winning level (often level 10) by defeating monste
 
 ## Enjoy the Adventure!
 
-Munchkin is a dynamic and humorous game where strategy, negotiation, and a bit of luck play crucial roles. Gather your friends, draw your cards, and embark on an unforgettable Munchkin adventure!
+UT'Munchkin is a dynamic and humorous game where strategy, negotiation, and a bit of luck play crucial roles. Gather your friends, draw your cards, and embark on an unforgettable UT'Munchkin adventure!
